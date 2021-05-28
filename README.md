@@ -1,5 +1,5 @@
 # <h1>personal-data-collecter</h1><br>
-ES6 Modules (non-responsive desktop app)<br><br>
+ES6 Modules Webpack and Babel (non-responsive desktop app)<br><br>
 Personal data-base with search function<br>
 Enter firstname and surname, date of birth and city of birth<br>
 Age, unique ID and datestamp automatically generated<br>
