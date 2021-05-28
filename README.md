@@ -1,5 +1,5 @@
 # <h1>Personal-data-collector</h1><br>
-ES6 Modules Webpack and Babel (non-responsive desktop app)<br><br>
+<h3>ES6 Modules Webpack and Babel</h3> (non-responsive desktop app)<br><br>
 Personal data-base with search function<br>
 Enter firstname and surname, date of birth and city of birth<br>
 Age, unique ID and datestamp automatically generated<br>
@@ -10,4 +10,6 @@ UI showing entries and search results<br>
 Several options for deleting entries from UI and localStorage<br><br><p>
   
 ![PDC2](https://user-images.githubusercontent.com/38325801/119843889-3e40a680-bf08-11eb-8be1-d84c60a72f3b.png)<br><br>
-![PDC1](https://user-images.githubusercontent.com/38325801/119843898-40a30080-bf08-11eb-915f-92c8bf22b487.png)<br><br>
+![PDC1](https://user-images.githubusercontent.com/38325801/119958831-b3ad8500-bfa3-11eb-8923-b871b8290a17.png)<br><br>
+![PDC3](https://user-images.githubusercontent.com/38325801/119958839-b5774880-bfa3-11eb-9bcd-5ab08b84c801.png)<br><br>
+
