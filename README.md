@@ -1,4 +1,4 @@
-# <h1>Personal-data-collector</h1><br>
+# <h1>Personal-data-collector</h1>
 <h3>ES6 Modules Webpack and Babel</h3>
 (non-responsive desktop app)<br><br>
 Personal data-base with search function<br>
