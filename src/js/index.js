@@ -167,35 +167,36 @@ function clearFields(fields) {
     }
 }
 
+
+let timer;
+function blink() {
+    timer = setInterval(function () {
+        var ele = document.querySelector(".warning");
+        ele.style.color = (ele.style.color == 'red' ? 'white' : 'red');
+    }, 1000);
+}
+
 document.querySelector(".clearStorageBtn").addEventListener("click", clearAllData);
 function clearAllData() {
     document.querySelector(".overlay").style.display = "flex";
-
     blink()
-
-    document.querySelector(".yesno").addEventListener("click", (e) => {
-        if (e.target.classList.contains("yes")) {
-            document.querySelector(".overlay").style.display = "none";
-            clearUI();
-            persons = [];
-            localStorage.setItem("persons", JSON.stringify(persons));
-        }
-
-        if (e.target.classList.contains("no")) {
-            document.querySelector(".overlay").style.display = "none";
-            clearUI();
-            loadList(persons);
-        }
-    });
 }
 
-function blink() {
-    var blink_speed = 1000;
-    var t = setInterval(function () {
-        var ele = document.querySelector(".warning");
-        ele.style.color = (ele.style.color == 'white' ? 'red' : 'white');
-    }, blink_speed);
-}
+document.querySelector(".yesno").addEventListener("click", (e) => {
+    if (e.target.classList.contains("yes")) {
+        document.querySelector(".overlay").style.display = "none";
+        clearUI();
+        persons = [];
+        localStorage.setItem("persons", JSON.stringify(persons));
+    }
+
+    if (e.target.classList.contains("no")) {
+        document.querySelector(".overlay").style.display = "none";
+        clearUI();
+        loadList(persons);
+    }
+    clearInterval(timer)
+});
 
 
 // Clear/delete items from UI and localStorage
