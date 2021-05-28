@@ -151,6 +151,7 @@ function addToList() {
     localStorage.setItem("persons", JSON.stringify(persons));
     clearFields(fields);
 }
+///////////////* end addToList function *//////////////////
 
 //Clear UI
 function clearUI() {
@@ -167,7 +168,7 @@ function clearFields(fields) {
     }
 }
 
-
+// Warning overlay blinks every second
 let timer;
 function blink() {
     timer = setInterval(function () {
@@ -237,4 +238,3 @@ function deleteItem() {
 
     localStorage.setItem("persons", JSON.stringify(persons));
 }
-

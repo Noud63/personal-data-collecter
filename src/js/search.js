@@ -108,3 +108,4 @@ const clearResult = document.querySelector(".clearResultsBtn").addEventListener(
         localStorage.setItem("entriesFound", JSON.stringify(entriesFound));
     }
 });
+
