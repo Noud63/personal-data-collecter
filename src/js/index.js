@@ -121,7 +121,7 @@ function addToList() {
                         <div class="info">ID:<div class="id">${obj.id}</div></div>
                         <div class="info enter">Entered:<div class="added">${obj.entered}</div></div>
                         <div class="checkandadd">
-                            <button type="submit" class="btn2">Check entry before adding</button>
+                            <div><button type="submit" class="btn2">Check entry before adding</button></div>
                         </div>
                     </div>`;
 
@@ -132,7 +132,7 @@ function addToList() {
     persons.push(obj);
     btn.disabled = true;
 
-    //Checkbutton attached at new entry, add entry by clickeng and update UI
+    //Checkbutton attached at new entry, add entry by clicking and update UI
     const btn2 = document.querySelector(".btn2");
     btn2.addEventListener("click", () => {
         document.querySelector(".item").classList.remove("checkandadd");
@@ -143,8 +143,11 @@ function addToList() {
 
     // Sort entries in alphabetical order
     persons = persons.sort(function (a, b) {
-        if (a.name < b.name) return -1;
-        else if (a.name > b.name) return 1;
+        if (a.name < b.name) {
+            return -1;
+        } else if (a.name > b.name) {
+            return 1;
+        }
         return 0;
     });
 
@@ -174,7 +177,7 @@ function blink() {
     timer = setInterval(function () {
         var ele = document.querySelector(".warning");
         ele.style.color = (ele.style.color == 'red' ? 'white' : 'red');
-    }, 1000);
+    }, 700);
 }
 
 document.querySelector(".clearStorageBtn").addEventListener("click", clearAllData);
