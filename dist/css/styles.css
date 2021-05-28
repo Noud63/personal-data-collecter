@@ -1,0 +1,423 @@
+body {
+    box-sizing: border-box;
+    /* background-color: rgb(211, 211, 211); */
+    background-image: url('../img/crowd.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.wrapper {
+    position: absolute;
+    width: 700px;
+    height: 790px;
+    top: 50%;
+    left: 50%;
+    margin-top: -415px;
+    margin-left: -350px;
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgb(218, 218, 218));
+    padding: 20px;
+    box-shadow: 0px 6px 18px rgb(107, 96, 96);
+}
+
+.inputFields {
+    display: flex;
+    flex-direction: row;
+}
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    font-size: 1.6rem;
+    color: rgb(255, 255, 255);
+    padding: 5px;
+    background-image: url('../img/crowd3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.collect {
+    font-size: 2rem;
+}
+
+input {
+    background-color: rgb(255, 255, 255);
+}
+
+.search {
+    width: 99px;
+    height: 28px;
+    margin-bottom: 15px;
+    background-image: linear-gradient(rgb(77, 219, 21), rgb(0, 114, 0));
+    color: white;
+    text-shadow: 0px 0px 2px rgb(0, 41, 2);
+    border-style: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.searchBar {
+   display: flex;
+   margin-bottom: 20px;
+   height: 23px;
+}
+
+.searchInput {
+    display: block;
+    width: 596px;
+    height: 25px;
+    border-top-style: none;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    outline: none;
+}
+
+hr {
+    margin-bottom: 5px;
+    border: 1px dotted white;
+}
+
+.title {
+    color: rgb(173, 173, 173);
+}
+
+span {
+    
+    padding-left: 5px;
+}
+.headRed {
+    color: red;
+}
+
+.labels {
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+}
+
+.nameLabel, .yearLabel, .cityLabel {
+    width: 202px;
+}
+
+.container {
+    position: relative;
+    background-image: url('../img/crowd3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    width: 680px;
+    height: 360px;
+    overflow: auto;
+    padding: 10px;
+}
+
+.entries {
+    width: 100%;
+    font-size: 1.2rem;
+    color: white;
+    border-bottom: 1px solid rgb(194, 194, 194);
+    padding-bottom: 5px;
+}
+
+.overlay {
+    display: none;
+    position: absolute;
+    top:184px;
+    left: 20px;
+    right: 20px;
+    bottom: 265px;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+  }
+
+.message {
+      width: 450px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: red;
+      background-color: white;
+      font-size: 1.4rem;
+      border: 3px solid red;
+      border-radius: 10px;
+      box-shadow: 0px 0px 8px rgb(0, 0, 0);
+}
+
+.yesno {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    color: red;
+    font-size: 1.4rem;
+    height: 40px;
+}
+
+.warning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: red;
+    font-size: 1.4rem;
+    font-weight: bold;
+    height: 40px;
+    width: 100%;
+}
+
+.areyousure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 100%;
+}
+
+.yes, .no {
+    cursor: pointer;
+}
+
+.info, .info2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.name, .name2 {
+    margin-left: 70px;
+}
+
+.born, .born2 {
+    margin-left: 25px;
+}
+
+.age, .age2 {
+    margin-left: 81px;
+}
+
+.city, .city2{
+    margin-left: 21px;
+}
+.added, .added2 {
+    margin-left: 57px; 
+    padding-bottom: 10px;
+}
+
+.name, .born, .born2, .age, .city, .id {
+    font-style: italic;
+}
+
+.clearStorageBtn, .removeLastItemBtn, .deleteItemBtn {
+    margin-top: 20px;
+    outline: none;
+    border-style: none;
+    height: 30px;
+    background-image: linear-gradient(rgb(255, 0, 0), rgb(131, 0, 0));
+    color: white;
+    text-shadow: 0px 0px 2px rgb(58, 0, 0);
+    cursor: pointer;
+}
+
+.id, .id2 {
+    margin-left: 91px;
+}
+
+.added {
+    margin-bottom: 10px;
+}
+
+.itemId {
+    width: 200px;
+    height: 26px;
+    outline: none;
+    margin-top: 20px;
+    margin-left: 7px;
+    background-color: rgb(241, 241, 241);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.deleteItemBtn {
+    width: 140px;
+}
+
+.clearStorageBtn {
+    width: 200px;
+    margin-right: 8px;
+}
+
+.removeLastItemBtn {
+    width: 140px;
+}
+
+.field {
+    width: 200px;
+    height: 24px;
+    margin-bottom: 15px;
+    border: 1px solid black;
+    outline: none;
+}
+
+.submitBtn {
+    width: 100px;
+    height: 28px;
+    margin-bottom: 15px;
+    background-image: linear-gradient(rgb(77, 219, 21), rgb(0, 114, 0));
+    color: white;
+    text-shadow: 0px 0px 2px rgb(0, 41, 2);
+    border-style: none;
+    outline: none;
+    cursor: pointer;
+}
+
+::placeholder {
+    padding-left: 3px;
+    color: rgb(143, 143, 143);
+     
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.item {
+    color: white;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.red {
+    color: red;
+}
+
+.checkandadd {
+    display: flex;
+    width: 100%;
+}
+
+.btn2 {
+    display: block;
+    width: 100%;
+    height: 30px;
+    background-color: rgb(96, 180, 62);
+    color: white;
+    text-shadow: 0px 0px 2px rgb(0, 41, 2);
+    border-style: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btnBlink {
+    width: 100%;
+    height: 23px;
+    background-color: rgb(40, 99, 17);
+    color: white;
+    text-shadow: 0px 0px 2px rgb(0, 41, 2);
+    border-style: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.item2 {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+.enter {
+    border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+.info2 {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+}
+
+.searchEntry {
+    color: rgb(100, 100, 100);
+    font-style: italic;
+}
+
+.searchResultHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    width: 700px;
+    height: 30px;
+    font-size: 1.4rem;
+    border-bottom: 1px solid black;
+}
+
+.searchResult {
+    width: 700px;
+    height: 9rem;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+}
+
+.clearResultsBtn {
+    outline: none;
+    border-style: none;
+    width: 105px;
+    height: 30px;
+    background-image: linear-gradient(rgb(255, 0, 0), rgb(131, 0, 0));
+    color: white;
+    text-shadow: 0px 0px 2px rgb(58, 0, 0);
+    cursor: pointer;
+}
+
+/* width */
+.container::-webkit-scrollbar {
+    width: 10px;
+  }
+
+/* Track */
+  .container::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  .container::-webkit-scrollbar-thumb {
+    box-shadow: inset 0px 0px 5px black; 
+    background: rgb(209, 209, 209); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover 
+  .container::-webkit-scrollbar-thumb:hover {
+    background: red; 
+  }
+  */
+
+.searchResult::-webkit-scrollbar {
+    height: 10px;
+  }
+
+.searchResult::-webkit-scrollbar-thumb {
+    box-shadow: inset 0px 0px 5px black; 
+    background: rgb(209, 209, 209); 
+    border-radius: 10px;
+  }
+
+  /*
+.searchResult::-webkit-scrollbar-thumb:hover {
+    background: red; 
+  }
+  */

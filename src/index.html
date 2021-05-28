@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+
+<body onload="blink()">
+    <div class="wrapper">
+        <div class="head">
+            <div class="collect">PDB</div>
+            <div class="title"></div>
+        </div>
+        <div class="searchBar">
+            <input type="text" class="searchInput" placeholder="search query by name and surname"><button type="button"
+                class="search">Search</button>
+        </div>
+        <div class="labels">
+            <div class="nameLabel">Name:</div>
+            <div class="yearLabel">Date of birth:</div>
+            <div class="cityLabel">Place of birth:</div>
+        </div>
+
+        <div class="inputFields">
+            <input type="text" class="names field" placeholder="Firstname and Surname">
+            <input type="text" class="yearofbirth field" placeholder="yyyy-mm-dd">
+            <input type="text" class="town field" placeholder="City name">
+            <button type="button" class="submitBtn">Submit</button>
+        </div>
+
+        <div class="container">
+            <div class="entries">Entries:</div>
+        </div>
+
+        <div class="overlay">
+            <div class="message">
+                <div class="warning">WARNING!</div>
+                <div class="areyousure">Are you sure you want to delete all data?</div>
+                <div class="yesno">
+                    <span class="yes">Yes</span>&nbsp;-<span class="no">No</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="buttons">
+            <button type="button" class="clearStorageBtn">Clear Storage and UI</button>
+            <button type="button" class="removeLastItemBtn">Delete last item</button>
+
+            <input type="text" class="itemId" placeholder="Insert item ID to delete item"><button type="button"
+                class="deleteItemBtn">Delete item</button>
+
+
+        </div>
+
+        <div class="searchResultHeader">Search results:<button type="button" class="clearResultsBtn">Clear
+                results</button>
+        </div>
+        <div class="searchResult"></div>
+
+    </div>
+    <!-- <script src="./js/index.js"></script> -->
+    <!-- <script defer="defer" src="js/bundle.js"></script> -->
+</body>
+
+</html>
