@@ -3,6 +3,7 @@
 import { persons } from "./index.js";
 export let entriesFound = [];
 
+
 let data2 = localStorage.getItem("entriesFound");
 
 if (data2) {
@@ -19,11 +20,10 @@ function loadList2(array2) {
                         <div class="info2">Place of birth:<div class="city2 searchEntry">${el.city}</div></div>
                         <div class="info2">ID:<div class="id2 searchEntry">${el.id}</div></div>
                         <div class="info2">Entered:<div class="added2 searchEntry">${el.entered}</div></div>
+                        <div class="info2"><button type="button" class="removeSearchResult">remove</button></div>
                      </div>`;
 
-        document
-            .querySelector(".searchResult")
-            .insertAdjacentHTML("beforeend", html);
+        document.querySelector(".searchResult").insertAdjacentHTML("beforeend", html);
     }
 }
 
@@ -64,6 +64,7 @@ export const searchBtn = document.querySelector(".search").addEventListener("cli
         for (let el of persons) {
             if (el.name === newName) {
                 addItem(el);
+                name.value = "";
                 entriesFound.push(el);
             }
         }
@@ -81,11 +82,10 @@ export const searchBtn = document.querySelector(".search").addEventListener("cli
         return;
     }
 
-    console.log(entriesFound);
-    console.log(persons);
     name.value = "";
     localStorage.setItem("entriesFound", JSON.stringify(entriesFound));
 });
+
 
 function addItem(entry) {
     const html = `<div id="${entry.id}" class="item2">
@@ -95,12 +95,14 @@ function addItem(entry) {
                         <div class="info2">Place of birth:<div class="city2 searchEntry">${entry.city}</div></div>
                         <div class="info2">ID:<div class="id2 searchEntry">${entry.id}</div></div>
                         <div class="info2">Entered:<div class="added2 searchEntry">${entry.entered}</div></div>
+                        <div class="info2"><button type="button" class="removeSearchResult">remove</button></div>
                      </div>`;
 
     document.querySelector(".searchResult").insertAdjacentHTML("beforeend", html);
+
 }
 
-const clearResult = document.querySelector(".clearResultsBtn").addEventListener("click", () => {
+document.querySelector(".clearResultsBtn").addEventListener("click", () => {
     const searchResults = [...document.querySelectorAll(".item2")];
     for (let el of searchResults) {
         el.remove();
@@ -108,4 +110,38 @@ const clearResult = document.querySelector(".clearResultsBtn").addEventListener(
         localStorage.setItem("entriesFound", JSON.stringify(entriesFound));
     }
 });
+
+
+document.querySelector('.searchResult').addEventListener('click', removeItem)
+function removeItem(e) {
+
+    const item = e.target.parentNode.parentNode
+    const ID = e.target.parentNode.parentNode.id
+    const button = e.target.classList.contains('removeSearchResult')
+    console.log(button)
+    if (button) {
+        item.parentNode.removeChild(item)
+    }
+    entriesFound = entriesFound.filter((entry) => {
+        return entry.id !== ID
+    })
+    localStorage.setItem("entriesFound", JSON.stringify(entriesFound))
+}
+
+
+// document.querySelector('.searchResult').addEventListener('click', removeItem)
+// function removeItem(e) {
+
+//     const item = e.target.parentNode.parentNode
+//     const ID = e.target.parentNode.parentNode.id
+//     if (ID) {
+//         item.parentNode.removeChild(item)
+//     }
+//     entriesFound = entriesFound.filter((entry) => {
+//         return entry.id !== ID
+//     })
+//     localStorage.setItem("entriesFound", JSON.stringify(entriesFound))
+// }
+
+
 

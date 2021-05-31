@@ -154,6 +154,7 @@ function addToList() {
     localStorage.setItem("persons", JSON.stringify(persons));
     clearFields(fields);
 }
+
 ///////////////* end addToList function *//////////////////
 
 //Clear UI
