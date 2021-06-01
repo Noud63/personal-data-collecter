@@ -5,10 +5,11 @@ module.exports = {
     entry: ['babel-polyfill', './src/js/index.js'],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'js/bundle.js'
+        filename: 'bundle.js'
     },
     devServer: {
         contentBase: './dist',
+        port: 8080
     },
     mode: 'production',
     plugins: [

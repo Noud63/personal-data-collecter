@@ -39,9 +39,9 @@ export const searchBtn = document.querySelector(".search").addEventListener("cli
     }
     if (name.value.split(" ").length === 3) {
         let firstname = name.value.split(" ")[0].charAt(0).toUpperCase() + name.value.split(" ")[0].slice(1)
-        let insertion = name.value.split(" ")[1]
+        let surnamePrefix = name.value.split(" ")[1]
         let lastname = name.value.split(" ")[2].charAt(0).toUpperCase() + name.value.split(" ")[2].slice(1)
-        newName = lastname + " " + insertion + ", " + firstname
+        newName = lastname + " " + surnamePrefix + ", " + firstname
     }
 
 
@@ -118,7 +118,7 @@ function removeItem(e) {
     const item = e.target.parentNode.parentNode
     const ID = e.target.parentNode.parentNode.id
     const button = e.target.classList.contains('removeSearchResult')
-    console.log(button)
+
     if (button) {
         item.parentNode.removeChild(item)
     }

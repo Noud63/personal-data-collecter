@@ -46,9 +46,9 @@ function addToList() {
     }
     if (name.split(" ").length === 3) {
         let firstname = name.split(" ")[0].charAt(0).toUpperCase() + name.split(" ")[0].slice(1)
-        let insertion = name.split(" ")[1]
+        let surnamePrefix = name.split(" ")[1]
         let lastname = name.split(" ")[2].charAt(0).toUpperCase() + name.split(" ")[2].slice(1)
-        name = lastname + " " + insertion + ", " + firstname
+        name = lastname + " " + surnamePrefix + ", " + firstname
     }
 
     //Create Unique id for each entry
