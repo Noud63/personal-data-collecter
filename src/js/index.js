@@ -121,7 +121,8 @@ function addToList() {
                         <div class="info">ID:<div class="id">${obj.id}</div></div>
                         <div class="info enter">Entered:<div class="added">${obj.entered}</div></div>
                         <div class="checkandadd">
-                            <div><button type="submit" class="btn2">Check entry before adding</button></div>
+                            <div><button type="submit" class="btn2">Add entry</button></div>
+                            <div><button type="submit" class="btn3">Remove entry</button></div>
                         </div>
                     </div>`;
 
@@ -141,7 +142,23 @@ function addToList() {
         btn.disabled = false;
     });
 
-    // Sort entries in alphabetical order
+    const btn3 = document.querySelector(".btn3");
+    btn3.addEventListener("click", (e) => {
+        const ID = e.target.parentNode.parentNode.parentNode.id
+        const item = e.target.parentNode.parentNode.parentNode
+        if (ID) {
+            item.parentNode.removeChild(item)
+        }
+        persons = persons.filter((x) => {
+            return x.id != ID;
+        });
+        localStorage.setItem("persons", JSON.stringify(persons));
+        loadList(persons);
+        btn.disabled = false;
+    });
+
+
+// Sort entries in alphabetical order
     persons = persons.sort(function (a, b) {
         if (a.name < b.name) {
             return -1;
