@@ -127,20 +127,3 @@ function removeItem(e) {
     localStorage.setItem("entriesFound", JSON.stringify(entriesFound))
 }
 
-
-// document.querySelector('.searchResult').addEventListener('click', removeItem)
-// function removeItem(e) {
-
-//     const item = e.target.parentNode.parentNode
-//     const ID = e.target.parentNode.parentNode.id
-//     if (ID) {
-//         item.parentNode.removeChild(item)
-//     }
-//     entriesFound = entriesFound.filter((entry) => {
-//         return entry.id !== ID
-//     })
-//     localStorage.setItem("entriesFound", JSON.stringify(entriesFound))
-// }
-
-
-
