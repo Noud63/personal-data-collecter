@@ -142,10 +142,12 @@ function addToList() {
         btn.disabled = false;
     });
 
+    //Delete new entry if there are any mistakes
     const btn3 = document.querySelector(".btn3");
     btn3.addEventListener("click", (e) => {
         const ID = e.target.parentNode.parentNode.parentNode.id
         const item = e.target.parentNode.parentNode.parentNode
+        console.log(item)
         if (ID) {
             item.parentNode.removeChild(item)
         }
@@ -158,7 +160,7 @@ function addToList() {
     });
 
 
-// Sort entries in alphabetical order
+    // Sort entries in alphabetical order
     persons = persons.sort(function (a, b) {
         if (a.name < b.name) {
             return -1;
@@ -200,25 +202,31 @@ function blink() {
 
 document.querySelector(".clearStorageBtn").addEventListener("click", clearAllData);
 function clearAllData() {
-    document.querySelector(".overlay").style.display = "flex";
-    blink()
+
+    if (persons.length === 0) {
+        alert("Database is empty!");
+        return;
+    } else {
+        document.querySelector(".overlay").style.display = "flex";
+        blink()
+    }
+
+    document.querySelector(".yesno").addEventListener("click", (e) => {
+        if (e.target.classList.contains("yes")) {
+            document.querySelector(".overlay").style.display = "none";
+            clearUI();
+            persons = [];
+            localStorage.setItem("persons", JSON.stringify(persons));
+        }
+
+        if (e.target.classList.contains("no")) {
+            document.querySelector(".overlay").style.display = "none";
+            clearUI();
+            loadList(persons);
+        }
+        clearInterval(timer)
+    });
 }
-
-document.querySelector(".yesno").addEventListener("click", (e) => {
-    if (e.target.classList.contains("yes")) {
-        document.querySelector(".overlay").style.display = "none";
-        clearUI();
-        persons = [];
-        localStorage.setItem("persons", JSON.stringify(persons));
-    }
-
-    if (e.target.classList.contains("no")) {
-        document.querySelector(".overlay").style.display = "none";
-        clearUI();
-        loadList(persons);
-    }
-    clearInterval(timer)
-});
 
 
 // Clear/delete items from UI and localStorage

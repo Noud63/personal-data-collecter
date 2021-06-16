@@ -44,7 +44,6 @@ export const searchBtn = document.querySelector(".search").addEventListener("cli
         newName = lastname + " " + surnamePrefix + ", " + firstname
     }
 
-
     if (name.value === "") {
         alert("No search query!");
         return;

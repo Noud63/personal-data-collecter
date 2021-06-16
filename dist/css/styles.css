@@ -442,12 +442,6 @@ span {
     background: rgb(209, 209, 209); 
     border-radius: 10px;
   }
-  
-  /* Handle on hover 
-  .container::-webkit-scrollbar-thumb:hover {
-    background: red; 
-  }
-  */
 
 .searchResult::-webkit-scrollbar {
     height: 10px;
@@ -458,9 +452,3 @@ span {
     background: rgb(209, 209, 209); 
     border-radius: 10px;
   }
-
-  /*
-.searchResult::-webkit-scrollbar-thumb:hover {
-    background: red; 
-  }
-  */
