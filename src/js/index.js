@@ -40,16 +40,14 @@ function addToList() {
     let name = fields[0].value;
     name = getName(name)
 
-    const person = entryObject(fields, name)
-
     //Calculates age by date
     let age = function (DOB) {
         var birthday = +new Date(DOB); // + converts date object to integer
         return ~~((Date.now() - birthday) / 31557600000); // 31557600000 ms = 24 * 3600 * 365.25 * 1000
     }; // ~~ returns an integer, no decimals
 
-
     let entered = getTimeStamp();
+    const person = entryObject(fields, name)
 
     let obj = {
         name: person.name,
