@@ -2,6 +2,8 @@
 
 import { getTimeStamp } from "./timestamp.js";
 import { searchBtn, entriesFound } from "./search.js"
+import { entryObject } from "./entryObject.js"
+import { getName } from "./getName.js"
 
 export let persons = [];
 
@@ -34,36 +36,11 @@ function addToList() {
     // Clear UI data container before adding new data
     clearUI();
 
-    //Add new entry
     const fields = [...document.querySelectorAll(".field")];
-
     let name = fields[0].value;
+    name = getName(name)
 
-    if (name.split(" ").length === 2) {
-        let firstname = name.split(" ")[0].charAt(0).toUpperCase() + name.split(" ")[0].slice(1)
-        let lastname = name.split(" ")[1].charAt(0).toUpperCase() + name.split(" ")[1].slice(1)
-        name = lastname + ", " + firstname
-    }
-    if (name.split(" ").length === 3) {
-        let firstname = name.split(" ")[0].charAt(0).toUpperCase() + name.split(" ")[0].slice(1)
-        let surnamePrefix = name.split(" ")[1]
-        let lastname = name.split(" ")[2].charAt(0).toUpperCase() + name.split(" ")[2].slice(1)
-        name = lastname + " " + surnamePrefix + ", " + firstname
-    }
-
-    //Create Unique id for each entry
-    const DOB = fields[1].value;
-    let city = fields[2].value;
-    city = city.charAt(0).toUpperCase() + city.slice(1);
-    const firstLetter = city.slice(0, 1).toUpperCase();
-    let type = DOB.split("-")[0].slice(2);
-    let id = name.split(" ")[0].replace(",", "");
-    let num = Math.floor(Math.random() * 99) + 1;
-    let num2 = Math.floor(Math.random() * 99) + 1;
-    if (num < 10) num = "0" + num;
-    if (num2 < 10) num2 = "0" + num2;
-
-    id = id + num2 + "-" + type + "-" + firstLetter + num;
+    const person = entryObject(fields, name)
 
     //Calculates age by date
     let age = function (DOB) {
@@ -71,14 +48,15 @@ function addToList() {
         return ~~((Date.now() - birthday) / 31557600000); // 31557600000 ms = 24 * 3600 * 365.25 * 1000
     }; // ~~ returns an integer, no decimals
 
+
     let entered = getTimeStamp();
 
     let obj = {
-        name: name,
-        dob: DOB,
-        city: city,
-        id: id,
-        age: age(DOB),
+        name: person.name,
+        dob: person.DOB,
+        city: person.city,
+        id: person.id,
+        age: age(person.DOB),
         entered: entered,
     };
 
@@ -133,7 +111,7 @@ function addToList() {
     persons.push(obj);
     btn.disabled = true;
 
-    //Checkbutton attached at new entry, add entry by clicking and update UI
+    //Checkbutton attached at new entry, add entry and update UI
     const btn2 = document.querySelector(".btn2");
     btn2.addEventListener("click", () => {
         document.querySelector(".item").classList.remove("checkandadd");
@@ -151,8 +129,8 @@ function addToList() {
         if (ID) {
             item.parentNode.removeChild(item)
         }
-        persons = persons.filter((x) => {
-            return x.id != ID;
+        persons = persons.filter((person) => {
+            return person.id !== ID;
         });
         localStorage.setItem("persons", JSON.stringify(persons));
         loadList(persons);
@@ -175,6 +153,7 @@ function addToList() {
 }
 
 ///////////////* end addToList function *//////////////////
+
 
 //Clear UI
 function clearUI() {
@@ -200,6 +179,8 @@ function blink() {
     }, 700);
 }
 
+
+// Clear all data from UI and localStorage
 document.querySelector(".clearStorageBtn").addEventListener("click", clearAllData);
 function clearAllData() {
 
@@ -221,8 +202,8 @@ function clearAllData() {
 
         if (e.target.classList.contains("no")) {
             document.querySelector(".overlay").style.display = "none";
-            clearUI();
-            loadList(persons);
+            //clearUI();
+            //loadList(persons);
         }
         clearInterval(timer)
     });

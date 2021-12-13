@@ -87,6 +87,7 @@ export const searchBtn = document.querySelector(".search").addEventListener("cli
 
 
 function addItem(entry) {
+
     const html = `<div id="${entry.id}" class="item2">
                         <div class="info2">Name:<div class="name2 searchEntry">${entry.name}</div></div>
                         <div class="info2">Date of birth:<div class="born2 searchEntry">${entry.dob}</div></div>
