@@ -10,8 +10,8 @@
 - UI showing entries and search results<br>
 - Several options for deleting entries and searchresults from UI and localStorage<br><br><p>
   
-![PDC2](https://user-images.githubusercontent.com/38325801/120181406-4f8df980-c20d-11eb-90eb-5f863f190af3.png)<br><br>
-![PDC1](https://user-images.githubusercontent.com/38325801/120476951-77b35f00-c3ab-11eb-9439-10446459cf70.png)<br><br>
-![PDC3](https://user-images.githubusercontent.com/38325801/120181419-53218080-c20d-11eb-8320-23805dabf191.png)<br><br>
+![PDC1](https://user-images.githubusercontent.com/38325801/145997577-9d04950d-fb0a-41f4-b731-f0783d4131a4.png)<br><br>
+![PDC3](https://user-images.githubusercontent.com/38325801/145997592-7df82e63-562d-486f-add9-989e993066c9.png)<br><br>
+![PDC2](https://user-images.githubusercontent.com/38325801/145997602-b10c820f-0c60-4d62-b5ae-b16fc7c8a67f.png)<br><br>
 
 
