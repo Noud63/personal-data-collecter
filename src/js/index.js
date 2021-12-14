@@ -1,9 +1,8 @@
-// Input fields for collecting data, with localStorage
 
 import { getTimeStamp } from "./timestamp.js";
 import { searchBtn, entriesFound } from "./search.js"
 import { entryObject } from "./entryObject.js"
-import { getName } from "./getName.js"
+import { parseName } from "./getName.js"
 
 export let persons = [];
 
@@ -14,6 +13,7 @@ if (data) {
     loadList(persons);
 }
 
+//Load persons list fromlocalStorage
 function loadList(array) {
     for (let el of array) {
         const html = `<div id="${el.id}" class="item">
@@ -22,13 +22,15 @@ function loadList(array) {
                     <div class="info">Age:<div class="age">${el.age}</div></div>
                     <div class="info">Place of birth:<div class="city">${el.city}</div></div>
                     <div class="info">ID:<div class="id">${el.id}</div></div>
-                    <div class="info enter">Entered:<div class="added">${el.entered}</div></div>
+                    <div class="info enter">Created at:<div class="added">${el.entered}</div></div>
                 </div>`;
 
         document.querySelector(".container").insertAdjacentHTML("beforeend", html);
     }
 }
 
+
+//Add new entry to UI and persons array
 const btn = document.querySelector(".submitBtn");
 btn.addEventListener("click", addToList);
 
@@ -38,13 +40,13 @@ function addToList() {
 
     const fields = [...document.querySelectorAll(".field")];
     let name = fields[0].value;
-    name = getName(name)
+    name = parseName(name)
 
     //Calculates age by date
     let age = function (DOB) {
-        var birthday = +new Date(DOB); // + converts date object to integer
-        return ~~((Date.now() - birthday) / 31557600000); // 31557600000 ms = 24 * 3600 * 365.25 * 1000
-    }; // ~~ returns an integer, no decimals
+        var birthday = +new Date(DOB);                                   // + converts date object to integer
+        return ~~((Date.now() - birthday) / 31557600000);                // 31557600000 ms = 24 * 3600 * 365.25 * 1000
+    };                                                                   // ~~ returns an integer, no decimals
 
     let entered = getTimeStamp();
     const person = entryObject(fields, name)
@@ -58,6 +60,8 @@ function addToList() {
         entered: entered,
     };
 
+
+    //Validate entry
     persons.forEach((el) => {
         if (obj.name === el.name && obj.city === el.city && obj.dob === el.dob) {
             alert("Data already exist!");
@@ -95,7 +99,7 @@ function addToList() {
                         <div class="info">Age:<div class="age">${obj.age}</div></div>
                         <div class="info">Place of birth:<div class="city">${obj.city}</div></div>
                         <div class="info">ID:<div class="id">${obj.id}</div></div>
-                        <div class="info enter">Entered:<div class="added">${obj.entered}</div></div>
+                        <div class="info enter">Created at:<div class="added">${obj.entered}</div></div>
                         <div class="checkandadd">
                             <div><button type="submit" class="btn2">Add entry</button></div>
                             <div><button type="submit" class="btn3">Remove entry</button></div>

@@ -1,5 +1,5 @@
 // Search for specific entry in database
-
+import { findName } from "./getName.js"
 import { persons } from "./index.js";
 export let entriesFound = [];
 
@@ -20,29 +20,19 @@ function loadList2(array2) {
                         <div class="info2">Place of birth:<div class="city2 searchEntry">${el.city}</div></div>
                         <div class="info2">ID:<div class="id2 searchEntry">${el.id}</div></div>
                         <div class="info2">Entered:<div class="added2 searchEntry">${el.entered}</div></div>
-                        <div class="info2"><button type="button" class="removeSearchResult">remove</button></div>
+                        <div class="info2"><button type="button" class="removeSearchResult">remove entry</button></div>
                      </div>`;
 
         document.querySelector(".searchResult").insertAdjacentHTML("beforeend", html);
     }
 }
 
+
+// Search query, search for person in database
 export const searchBtn = document.querySelector(".search").addEventListener("click", () => {
 
     let name = document.querySelector(".searchInput");
-    let newName;
-
-    if (name.value.split(" ").length === 2) {
-        let firstname = name.value.split(" ")[0].charAt(0).toUpperCase() + name.value.split(" ")[0].slice(1)
-        let lastname = name.value.split(" ")[1].charAt(0).toUpperCase() + name.value.split(" ")[1].slice(1)
-        newName = lastname + ", " + firstname
-    }
-    if (name.value.split(" ").length === 3) {
-        let firstname = name.value.split(" ")[0].charAt(0).toUpperCase() + name.value.split(" ")[0].slice(1)
-        let surnamePrefix = name.value.split(" ")[1]
-        let lastname = name.value.split(" ")[2].charAt(0).toUpperCase() + name.value.split(" ")[2].slice(1)
-        newName = lastname + " " + surnamePrefix + ", " + firstname
-    }
+    let searchQuery = findName(name)
 
     if (name.value === "") {
         alert("No search query!");
@@ -51,7 +41,7 @@ export const searchBtn = document.querySelector(".search").addEventListener("cli
 
     if (entriesFound.length > 0 && persons.length >= 0) {
         for (let el of entriesFound) {
-            if (el.name === newName) {
+            if (el.name === searchQuery) {
                 alert("You have found that one already!");
                 name.value = "";
                 return;
@@ -61,7 +51,7 @@ export const searchBtn = document.querySelector(".search").addEventListener("cli
 
     if (persons.length > 0) {
         for (let el of persons) {
-            if (el.name === newName) {
+            if (el.name === searchQuery) {
                 addItem(el);
                 name.value = "";
                 entriesFound.push(el);
@@ -73,7 +63,7 @@ export const searchBtn = document.querySelector(".search").addEventListener("cli
         return;
     }
 
-    let noMatch = persons.every((el) => el.name !== newName);
+    let noMatch = persons.every((el) => el.name !== searchQuery);
 
     if (noMatch) {
         alert("No matching data found!");
@@ -86,6 +76,7 @@ export const searchBtn = document.querySelector(".search").addEventListener("cli
 });
 
 
+//Add search result to UI
 function addItem(entry) {
 
     const html = `<div id="${entry.id}" class="item2">
@@ -95,7 +86,7 @@ function addItem(entry) {
                         <div class="info2">Place of birth:<div class="city2 searchEntry">${entry.city}</div></div>
                         <div class="info2">ID:<div class="id2 searchEntry">${entry.id}</div></div>
                         <div class="info2">Entered:<div class="added2 searchEntry">${entry.entered}</div></div>
-                        <div class="info2"><button type="button" class="removeSearchResult">remove</button></div>
+                        <div class="info2"><button type="button" class="removeSearchResult">remove entry</button></div>
                      </div>`;
 
     document.querySelector(".searchResult").insertAdjacentHTML("beforeend", html);

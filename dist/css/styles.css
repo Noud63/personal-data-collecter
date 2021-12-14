@@ -14,7 +14,7 @@ body {
     left: 50%;
     margin-top: -435px;
     margin-left: -350px;
-    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgb(218, 218, 218));
+    background-image: linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255), rgb(226, 226, 226));
     padding: 20px;
     box-shadow: 0px 6px 18px rgb(107, 96, 96);
 }
@@ -213,19 +213,33 @@ span {
     margin-left: 70px;
 }
 
-.born, .born2 {
+.born {
     margin-left: 25px;
 }
 
-.age, .age2 {
-    margin-left: 81px;
+.age {
+    margin-left: 82px;
 }
 
-.city, .city2{
-    margin-left: 21px;
+.born2 {
+  margin-left: 27px;
 }
-.added, .added2 {
-    margin-left: 57px; 
+
+.age2 {
+   margin-left: 83px; 
+}
+
+.city, .city2 {
+    margin-left: 23px;
+}
+
+.added {
+    margin-left: 43px; 
+    padding-bottom: 10px;
+}
+
+.added2 {
+    margin-left: 58px; 
     padding-bottom: 10px;
 }
 
@@ -238,7 +252,7 @@ span {
     outline: none;
     border-style: none;
     height: 30px;
-    background-image: linear-gradient(rgb(255, 0, 0), rgb(131, 0, 0));
+    background-image: linear-gradient(rgb(194, 0, 0), rgb(70, 0, 0));
     color: white;
     text-shadow: 0px 0px 2px rgb(58, 0, 0);
     cursor: pointer;
@@ -338,7 +352,7 @@ span {
 .btn3 {
     width: 100%;
     height: 30px;
-    background-image: linear-gradient(rgb(255, 0, 0), rgb(117, 0, 0));
+    background-image: linear-gradient(rgb(196, 0, 0), rgb(94, 0, 0));
     color: white;
     text-shadow: 0px 0px 2px rgb(0, 41, 2);
     border-style: none;
@@ -406,7 +420,7 @@ span {
 .removeSearchResult {
     width: 100%;
     height: 30px;
-    background-image: linear-gradient(rgb(199, 199, 199), rgb(83, 83, 83));
+   background-image: linear-gradient(rgb(194, 0, 0), rgb(70, 0, 0));
     color: white;
     border-style: none;
     outline: none;
@@ -418,7 +432,7 @@ span {
     border-style: none;
     width: 105px;
     height: 30px;
-    background-image: linear-gradient(rgb(255, 0, 0), rgb(131, 0, 0));
+   background-image: linear-gradient(rgb(194, 0, 0), rgb(70, 0, 0));
     color: white;
     text-shadow: 0px 0px 2px rgb(58, 0, 0);
     cursor: pointer;
@@ -431,7 +445,6 @@ span {
 
 /* Track */
   .container::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 10px grey; 
     border-radius: 10px;
   }
    
